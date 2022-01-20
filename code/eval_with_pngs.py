@@ -109,12 +109,14 @@ def test():
             directory = file_dir.replace('_' + filename, '')        
 
             if args.split == 'eigen_benchmark':
-                gt_depth_path = os.path.join(args.gt_path, 'data_depth_annotated', 'train', directory, 'proj_depth/groundtruth/image_02', filename + '.png')
+                gt_depth_path = os.path.join(args.gt_path, 'data_depth_annotated', 'train', directory, 
+                                             'proj_depth/groundtruth/image_02', filename + '.png')
             
                 if not os.path.isfile(gt_depth_path):
                     gt_depth_path = gt_depth_path.replace("train", "val")
             else:                
-                gt_depth_path = os.path.join(args.gt_path, '_'.join(file_dir.split('_')[0:3]), directory, 'velodyne_points/data', filename + '.png')            
+                gt_depth_path = os.path.join(args.gt_path, '_'.join(file_dir.split('_')[0:3]), directory, 
+                                             'velodyne_points/data', filename + '.png')            
 
             depth = cv2.imread(gt_depth_path, -1)
             if depth is None:
@@ -131,7 +133,8 @@ def test():
             filename = file_dir.split('_')[-1]
             directory = file_dir.replace('_rgb_'+file_dir.split('_')[-1], '')
             
-            gt_depth_path = os.path.join(args.gt_path, 'official_splits/test', directory, 'sync_depth_' + filename + '.png')
+            gt_depth_path = os.path.join(args.gt_path, 'official_splits/test', directory,
+                                         'sync_depth_' + filename + '.png')
             
             depth = cv2.imread(gt_depth_path, -1)
             if depth is None:
