@@ -5,7 +5,7 @@
 
 ### Downloads
 
-- [[Downloads]](https://drive.google.com/drive/folders/1UXTM7pH2lCogJx7kndtvhB1LywHQPisi) Predicted depth maps png files for NYU Depth V2 and KITTI Eigen split test set 
+- [[Downloads]](https://drive.google.com/drive/folders/1LGNSKSaXguLTuCJ3Ay_UsYC188JNCK-j?usp=sharing) Predicted depth maps png files for NYU Depth V2 and KITTI Eigen split test set 
 
 ### Inference and Evaluate
 
