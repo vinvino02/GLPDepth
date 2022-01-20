@@ -36,14 +36,15 @@ $ unzip data_depth_annotated.zip
 #### Evaluation
 
 - evaluate with png images
-for NYU Depth V2
-```
-$ python ./code/eval_with_pngs.py --dataset nyudepthv2 --pred_path ./best_nyu_preds/ --gt_path ./datasets/nyu_depth_v2/ --max_depth_eval 10.0 
-```
-for KITTI
-```
-$ python ./code/eval_with_pngs.py --dataset kitti --split eigen_benchmark --pred_path ./best_kitti_preds/ --gt_path ./datasets/kitti/ --max_depth_eval 80.0 --garg_crop
-```
+
+  for NYU Depth V2
+  ```
+  $ python ./code/eval_with_pngs.py --dataset nyudepthv2 --pred_path ./best_nyu_preds/ --gt_path ./datasets/nyu_depth_v2/ --max_depth_eval 10.0 
+  ```
+  for KITTI
+  ```
+  $ python ./code/eval_with_pngs.py --dataset kitti --split eigen_benchmark --pred_path ./best_kitti_preds/ --gt_path ./datasets/kitti/ --max_depth_eval 80.0 --garg_crop
+  ```
 
 <!---
 - evaluate with pre-trained model
