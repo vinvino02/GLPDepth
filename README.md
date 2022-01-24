@@ -56,6 +56,7 @@ $ python ./code/inference.py --do_evaluate --dataset nyudepthv2
 ### To-Do
 - [ ] Add inference 
 - [ ] Add training codes
+- [ ] Add dockerHub link
 - [ ] Add colab
 
 ### References
