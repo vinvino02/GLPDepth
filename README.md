@@ -4,18 +4,26 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/global-local-path-networks-for-monocular/monocular-depth-estimation-on-kitti-eigen)](https://paperswithcode.com/sota/monocular-depth-estimation-on-kitti-eigen?p=global-local-path-networks-for-monocular)
 
 ### Downloads
-
+- [[Downloads]](https://drive.google.com/drive/folders/17yYbLZS2uQ6UVn5ET9RhVL0y_X3Ipl5_?usp=sharing) Trained ckpt files for NYU Depth V2 and KITTI
 - [[Downloads]](https://drive.google.com/drive/folders/1LGNSKSaXguLTuCJ3Ay_UsYC188JNCK-j?usp=sharing) Predicted depth maps png files for NYU Depth V2 and KITTI Eigen split test set 
 
 ### Requirements
 Tested on 
 ```
 python==3.7.7
+torch==1.6.0
 h5py==3.6.0
 scipy==1.7.3
-cv2==4.5.5
+opencv-python==4.5.5
+mmcv==1.4.3
+timm=0.5.4
+albumentations=1.1.0
+tensorboardX==2.4.1
 ```
-
+You can install above package with 
+```
+$ pip install -r requirements.txt
+```
 ### Inference and Evaluate
 
 #### Dataset
@@ -33,9 +41,28 @@ $ cd ./datasets/kitti/data_depth_annotated/
 $ unzip data_depth_annotated.zip
 ```
 
+With above two instrtuctions, you can perform eval_with_pngs.py/test.py for NYU Depth V2 and eval_with_pngs for KITTI.
+
+To fully perform experiments, please follow [[BTS]](https://github.com/cleinc/bts/tree/master/pytorch) repository to obtain full dataset for NYU Depth V2 and KITTI datasets.
+
+Your dataset directory should be
+```
+root
+- nyu_depth_v2
+  - bathroom_0001
+  - bathroom_0002
+  - ...
+  - official_splits
+- kitti
+  - data_depth_annotated
+  - raw_data
+  - val_selection_cropped
+```
+
+
 #### Evaluation
 
-- evaluate with png images
+- Evaluate with png images
 
   for NYU Depth V2
   ```
@@ -45,22 +72,40 @@ $ unzip data_depth_annotated.zip
   ```
   $ python ./code/eval_with_pngs.py --dataset kitti --split eigen_benchmark --pred_path ./best_kitti_preds/ --gt_path ./datasets/kitti/ --max_depth_eval 80.0 --garg_crop
   ```
+- Evaluate with model (NYU Depth V2)
+  
+  Result images will be saved in ./args.result_dir/args.exp_name (default: ./results/test)
+   - To evaluate only
+     ```
+     $ python ./code/test.py --dataset nyudepthv2 --data_path ./datasets/ --ckpt_dir <path_for_ckpt> --do_evaluate  --max_depth 10.0 --max_depth_eval 10.0
+     ```
+   - To save pngs for eval_with_pngs
+      ```
+     $ python ./code/test.py --dataset nyudepthv2 --data_path ./datasets/ --ckpt_dir <path_for_ckpt> --save_eval_pngs  --max_depth 10.0 --max_depth_eval 10.0
+     ```         
+    
+   - To save visualized depth maps
+     ```
+     $ python ./code/test.py --dataset nyudepthv2 --data_path ./datasets/ --ckpt_dir <path_for_ckpt> --save_visualize  --max_depth 10.0 --max_depth_eval 10.0
+     ```
+    
+    In case of kitti, modify arguments to `--dataset kitti --max_depth 80.0 --max_depth_eval 80.0` and add `--kitti_crop [garg_crop or eigen_crop]`
+#### Inference
 
-<!---
-- evaluate with pre-trained model
-```
-$ python ./code/inference.py --do_evaluate --dataset nyudepthv2
-```
--->
-
+- Inference with image directory
+  ```
+  $ python ./code/test.py --dataset imagepath --data_path <dir_to_imgs> --save_visualize
+  ```
+  
 ### To-Do
-- [ ] Add inference 
+- [x] Add inference 
 - [ ] Add training codes
+- [ ] Add dockerHub link
 - [ ] Add colab
 
 ### References
 
 [1] From Big to Small: Multi-Scale Local Planar Guidance for Monocular Depth Estimation. [[code]](https://github.com/cleinc/bts)
-<!---
+
 [2] SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers. [[code]](https://github.com/NVlabs/SegFormer)
--->
+
