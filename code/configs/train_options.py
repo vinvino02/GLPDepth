@@ -15,7 +15,7 @@ class TrainOptions(BaseOptions):
         # logging options
         parser.add_argument('--val_freq', type=int, default=1)
         parser.add_argument('--save_freq', type=int, default=10)
-        parser.add_argument('--do_save_model', action='store_true')        
+        parser.add_argument('--save_model', action='store_true')        
         parser.add_argument('--save_result', action='store_true')
 
         

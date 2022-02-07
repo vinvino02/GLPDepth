@@ -19,11 +19,18 @@ mmcv==1.4.3
 timm=0.5.4
 albumentations=1.1.0
 tensorboardX==2.4.1
+gdown==4.2.1
 ```
 You can install above package with 
 ```
 $ pip install -r requirements.txt
 ```
+
+Or you can pull docker image with
+```
+$ docker pull doyeon0113/glpdepth
+```
+
 ### Inference and Evaluate
 
 #### Dataset
@@ -90,6 +97,7 @@ root
      ```
     
     In case of kitti, modify arguments to `--dataset kitti --max_depth 80.0 --max_depth_eval 80.0` and add `--kitti_crop [garg_crop or eigen_crop]`
+
 #### Inference
 
 - Inference with image directory
@@ -97,15 +105,36 @@ root
   $ python ./code/test.py --dataset imagepath --data_path <dir_to_imgs> --save_visualize
   ```
   
+### Train
+
+for NYU Depth V2
+  ```
+  $ python ./code/train.py --dataset nyudepthv2 --data_path ./datasets/ --max_depth 10.0 --max_depth_eval 10.0  
+  ```
+  for KITTI
+  ```
+  $ python ./code/train.py --dataset kitti --data_path ./datasets/ --max_depth 80.0 --max_depth_eval 80.0  --garg_crop
+  ```
+
 ### To-Do
 - [x] Add inference 
-- [ ] Add training codes
-- [ ] Add dockerHub link
+- [x] Add training codes
+- [x] Add dockerHub link
 - [ ] Add colab
+
+### Citation
+
+```
+@article{kim2022global,
+  title={Global-Local Path Networks for Monocular Depth Estimation with Vertical CutDepth},
+  author={Kim, Doyeon and Ga, Woonghyun and Ahn, Pyungwhan and Joo, Donggyu and Chun, Sehwan and Kim, Junmo},
+  journal={arXiv preprint arXiv:2201.07436},
+  year={2022}
+}
+```
 
 ### References
 
 [1] From Big to Small: Multi-Scale Local Planar Guidance for Monocular Depth Estimation. [[code]](https://github.com/cleinc/bts)
 
 [2] SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers. [[code]](https://github.com/NVlabs/SegFormer)
-

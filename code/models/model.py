@@ -1,4 +1,3 @@
-
 import torch
 import torch.nn as nn
 
@@ -11,9 +10,18 @@ class GLPDepth(nn.Module):
         self.max_depth = max_depth
 
         self.encoder = mit_b4()
-        if is_train:
+        if is_train:            
             ckpt_path = './code/models/weights/mit_b4.pth'
-            load_checkpoint(self.encoder, ckpt_path, logger=None)
+            try:
+                load_checkpoint(self.encoder, ckpt_path, logger=None)
+            except:
+                import gdown
+                print("Download pre-trained encoder weights...")
+                id = '1BUtU42moYrOFbsMCE-LTTkUE-mrWnfG2'
+                url = 'https://drive.google.com/uc?id=' + id
+                output = './code/models/weights/mit_b4.pth'
+                gdown.download(url, output, quiet=False)
+
         channels_in = [512, 320, 128]
         channels_out = 64
             

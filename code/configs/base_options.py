@@ -13,7 +13,6 @@ class BaseOptions():
         parser.add_argument('--dataset',      type=str, default='nyudepthv2',
                             choices=['nyudepthv2', 'kitti', 'imagepath'])
         parser.add_argument('--exp_name',     type=str, default='test')
-
         parser.add_argument('--batch_size',   type=int, default=12)
         parser.add_argument('--workers',      type=int, default=8)
         
@@ -22,7 +21,6 @@ class BaseOptions():
         parser.add_argument('--max_depth_eval', type=float, default=10.0)
         parser.add_argument('--min_depth_eval', type=float, default=1e-3)        
         parser.add_argument('--do_kb_crop',     type=int, default=1)
-
         parser.add_argument('--kitti_crop', type=str, default=None,
                             choices=['garg_crop', 'eigen_crop'])
 

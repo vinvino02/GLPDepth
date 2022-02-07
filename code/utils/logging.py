@@ -1,5 +1,4 @@
 import os
-
 import cv2
 import sys
 import time
@@ -146,3 +145,12 @@ def check_and_make_dirs(paths):
     for path in paths:
         if not os.path.exists(path):
             os.makedirs(path)
+
+def log_args_to_txt(log_txt, args):
+    if not os.path.exists(log_txt):
+        with open(log_txt, 'w') as txtfile:
+            args_ = vars(args)
+            args_str = ''
+            for k, v in args_.items():
+                args_str = args_str + str(k) + ':' + str(v) + ',\t\n'
+            txtfile.write(args_str + '\n')

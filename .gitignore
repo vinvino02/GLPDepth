@@ -1,2 +1,6 @@
 *.zip
 *.sh
+ckpt/
+logs/
+results/
+__pycache__/

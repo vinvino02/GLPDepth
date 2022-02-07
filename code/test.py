@@ -1,3 +1,7 @@
+'''
+Doyeon Kim, 2022
+'''
+
 import os
 import cv2
 import numpy as np
@@ -84,14 +88,11 @@ def main():
                 pred_d = pred_d.cpu().numpy() * 1000.0
                 cv2.imwrite(save_path, pred_d.astype(np.uint16),
                             [cv2.IMWRITE_PNG_COMPRESSION, 0])
-            elif args.dataset == 'kitti':
+            else:
                 pred_d = pred_d.cpu().numpy() * 256.0
                 cv2.imwrite(save_path, pred_d.astype(np.uint16),
                             [cv2.IMWRITE_PNG_COMPRESSION, 0])
-            else:
-                cv2.imwrite(save_path, (pred_d.cpu().numpy()).astype(np.uint16),
-                            [cv2.IMWRITE_PNG_COMPRESSION, 0])
-
+            
         if args.save_visualize:
             save_path = os.path.join(result_path, filename[0])
             pred_d_numpy = pred_d.squeeze().cpu().numpy()
