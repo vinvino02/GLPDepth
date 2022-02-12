@@ -30,7 +30,6 @@ Or you can pull docker image with
 ```
 $ docker pull doyeon0113/glpdepth
 ```
-
 ### Inference and Evaluate
 
 #### Dataset
@@ -121,6 +120,10 @@ for NYU Depth V2
 - [x] Add training codes
 - [x] Add dockerHub link
 - [ ] Add colab
+
+
+### License
+For non-commercial purpose only (research, evaluation etc). We will update the license soon.
 
 ### Citation
 
