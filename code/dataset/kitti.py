@@ -58,7 +58,7 @@ class kitti(BaseDataset):
 
         if self.scale_size:
             image = cv2.resize(image, (self.scale_size[0], self.scale_size[1]))
-            depth = cv2.resize(image, (self.scale_size[0], self.scale_size[1]))
+            depth = cv2.resize(depth, (self.scale_size[0], self.scale_size[1]))
 
         if self.is_train:
             image, depth = self.augment_training_data(image, depth)
