@@ -7,6 +7,15 @@
 - [[Downloads]](https://drive.google.com/drive/folders/17yYbLZS2uQ6UVn5ET9RhVL0y_X3Ipl5_?usp=sharing) Trained ckpt files for NYU Depth V2 and KITTI
 - [[Downloads]](https://drive.google.com/drive/folders/1LGNSKSaXguLTuCJ3Ay_UsYC188JNCK-j?usp=sharing) Predicted depth maps png files for NYU Depth V2 and KITTI Eigen split test set 
 
+### Google Colab
+
+<p>
+<a href="https://colab.research.google.com/drive/1v6fzr4XusKdXAaeGZ1gKe1kh9Ce_WQhl?usp=sharing" target="_parent">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+</p>
+Thanks for the great Colab demo from NielsRogge
+
 ### Requirements
 Tested on 
 ```
@@ -119,7 +128,7 @@ for NYU Depth V2
 - [x] Add inference 
 - [x] Add training codes
 - [x] Add dockerHub link
-- [ ] Add colab
+- [x] Add colab
 
 
 ### License
