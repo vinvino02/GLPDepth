@@ -132,7 +132,7 @@ for NYU Depth V2
 
 
 ### License
-For non-commercial purpose only (research, evaluation etc). We will update the license soon.
+For non-commercial purpose only (research, evaluation etc).
 
 ### Citation
 
