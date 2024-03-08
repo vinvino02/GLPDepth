@@ -4,3 +4,6 @@ ckpt/
 logs/
 results/
 __pycache__/
+.DS_Store
+
+datasets/
